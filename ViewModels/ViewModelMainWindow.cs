@@ -52,14 +52,10 @@ namespace Test_3.ViewModels
             }
         }
 
-        public ViewModelMainWindow(Document doc)
+        public ViewModelMainWindow(List<Level> levels)
         {
-            _doc = doc;
-
-            _levels = new FilteredElementCollector(doc)
-            .WhereElementIsNotElementType()
-            .OfCategory(BuiltInCategory.INVALID)
-            .OfClass(typeof(Level)).Cast<Level>().ToList();
+            Levels = levels;
+            MainWindow.ShowDialog();
         }
     }
 }
