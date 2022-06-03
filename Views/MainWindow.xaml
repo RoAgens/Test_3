@@ -1,0 +1,29 @@
+﻿<Window x:Class="Test_3.Views.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Test_3.Views"
+             mc:Ignorable="d"
+             Title="Список уровней объекта"
+             Height="300" Width="300">
+    <Grid>
+        <ListView x:Name="lw1"
+                  ItemsSource="{Binding Levels, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                  Grid.Row="2"
+                  Margin="5">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Id}"
+                                    Header="Id"
+                                    Width="80">
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}"
+                                    Header="Имя уровня"
+                                    Width="200">
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
