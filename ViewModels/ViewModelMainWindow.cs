@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Test_3.Models;
 using Test_3.ViewModelsBase;
 using Test_3.Views;
 
@@ -14,24 +15,11 @@ namespace Test_3.ViewModels
         private Document _doc;
         private List<Level> _levels;
 
-        private MainWindow _mainWindow;
+        private RVProject rvProject;
 
-        public MainWindow MainWindow
+        public ViewModelMainWindow(Document _doc)
         {
-            get
-            {
-                if (_mainWindow == null)
-                {
-                    _mainWindow = new MainWindow() { DataContext = this };
-                }
-                return _mainWindow;
-            }
-
-            set
-            {
-                _mainWindow = value;
-                OnPropertyChanged();
-            }
+            rvProject = new RVProject(_doc);
         }
 
         public List<Level> Levels
@@ -40,7 +28,7 @@ namespace Test_3.ViewModels
             {
                 if (_levels == null)
                 {
-                    _levels = new List<Level>();
+                    _levels = rvProject.RVLevels;
                 }
                 return _levels;
             }
@@ -50,12 +38,6 @@ namespace Test_3.ViewModels
                 _levels = value;
                 OnPropertyChanged();
             }
-        }
-
-        public ViewModelMainWindow(List<Level> levels)
-        {
-            Levels = levels;
-            MainWindow.ShowDialog();
         }
     }
 }

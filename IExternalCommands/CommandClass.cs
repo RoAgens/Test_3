@@ -20,12 +20,11 @@ namespace Test_3.Models
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            List<Level> _levels = new FilteredElementCollector(doc)
-            .WhereElementIsNotElementType()
-            .OfCategory(BuiltInCategory.INVALID)
-            .OfClass(typeof(Level)).Cast<Level>().ToList();
+            var viewModelMainWindow = new ViewModelMainWindow(doc);
+            var mainwindow = new MainWindow();
 
-            var viewModelMainWindow = new ViewModelMainWindow(_levels);
+            mainwindow.DataContext = viewModelMainWindow;
+            mainwindow.Show();
 
             return Result.Succeeded;
         }
