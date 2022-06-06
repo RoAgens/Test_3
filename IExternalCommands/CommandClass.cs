@@ -20,8 +20,9 @@ namespace Test_3.Models
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            var viewModelMainWindow = new ViewModelMainWindow(doc);
             var mainwindow = new MainWindow();
+            var rvProject = new RVProject(doc);
+            var viewModelMainWindow = new ViewModelMainWindow(rvProject);
 
             mainwindow.DataContext = viewModelMainWindow;
             mainwindow.Show();

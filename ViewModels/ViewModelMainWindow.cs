@@ -17,9 +17,9 @@ namespace Test_3.ViewModels
 
         private RVProject rvProject;
 
-        public ViewModelMainWindow(Document _doc)
+        public ViewModelMainWindow(RVProject rvProject)
         {
-            rvProject = new RVProject(_doc);
+            this.rvProject = rvProject;
         }
 
         public List<Level> Levels
